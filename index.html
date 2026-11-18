@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Stadium Flasher</title>
+<meta name="description" content="Install the Live Stadium scoreboard software on your 7 inch screen with 1 click.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/esp-web-tools@10.4.0/dist/web/install-button.js?module"></script>
+<style>
+  :root { --bg:#f4f2ee; --ink:#14181f; --muted:#5b6372; --card:#ffffff; --line:#dcd8d0; --accent:#e2561f; --accent-ink:#ffffff; --ok:#1f7a4d; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0d1118; --ink:#eef1f6; --muted:#9aa3b2; --card:#161c26; --line:#2a3342; --accent:#f06a32; --accent-ink:#ffffff; --ok:#4fc18a; } }
+  :root[data-theme="dark"] { --bg:#0d1118; --ink:#eef1f6; --muted:#9aa3b2; --card:#161c26; --line:#2a3342; --accent:#f06a32; --accent-ink:#ffffff; --ok:#4fc18a; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 Inter, system-ui, sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:40px 16px 64px; }
+  .kicker { font:600 14px/1 "Barlow Condensed", sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
+  h1 { font:800 46px/1 "Barlow Condensed", sans-serif; margin:10px 0 12px; text-transform:uppercase; }
+  .lead { color:var(--muted); margin:0 0 28px; max-width:56ch; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; margin-bottom:18px; }
+  ol { margin:0; padding-left:22px; } li { margin:0 0 12px; } li:last-child { margin:0; }
+  .install { display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
+  esp-web-install-button button { font:700 18px/1 Inter, sans-serif; background:var(--accent); color:var(--accent-ink); border:0; border-radius:12px; padding:16px 26px; cursor:pointer; }
+  .note { color:var(--muted); font-size:14px; }
+  esp-web-install-button:not(:defined) [slot="unsupported"], esp-web-install-button:not(:defined) [slot="not-allowed"] { display:none; }
+  esp-web-install-button [slot="unsupported"], esp-web-install-button [slot="not-allowed"] { color:var(--muted); font-size:14px; }
+  .warn { border-left:4px solid var(--accent); }
+  h2 { font:800 22px/1.1 "Barlow Condensed", sans-serif; text-transform:uppercase; letter-spacing:.03em; margin:0 0 12px; }
+  .ok { color:var(--ok); font-weight:600; }
+  footer { color:var(--muted); font-size:13px; margin-top:28px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="kicker">TJ Maker World</div>
+  <h1>Live Stadium Flasher</h1>
+  <p class="lead">Put the Live Stadium scoreboard software on your 7" screen. About 3 minutes. After this, updates arrive by themselves over WiFi.</p>
+
+  <div class="card">
+    <h2>You need</h2>
+    <ol>
+      <li>The screen: <strong>Waveshare ESP32-S3-Touch-LCD-7</strong> (800 x 480, touch). The 1024 x 600 "Type B" will not work.</li>
+      <li>A USB-C <strong>data</strong> cable. Charge-only cables don't work: if nothing shows up in step 3, try another cable.</li>
+      <li>A computer with <strong>Chrome or Edge</strong> (not Safari or Firefox, not a phone).</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Install</h2>
+    <ol>
+      <li>Plug the cable into the screen's port marked <strong>USB</strong> (not "UART"), then into your computer.</li>
+      <li>Click <strong>Install Live Stadium</strong> below.</li>
+      <li>Pick the port that appears (it says "USB JTAG/serial" or "ESP32-S3"), then <strong>Connect</strong>.</li>
+      <li>Choose <strong>Install</strong>. Say yes to <strong>erase</strong> on a new screen.</li>
+      <li>Wait for "Installation complete" (1–2 minutes). Unplug, and plug the stadium into power.</li>
+    </ol>
+    <div class="install" style="margin-top:20px">
+      <esp-web-install-button manifest="flasher/manifest.json">
+        <button slot="activate">Install Live Stadium</button>
+        <span slot="unsupported">This browser can't flash. Open this page in Chrome or Edge on a computer.</span>
+        <span slot="not-allowed">Open this page from https:// (not a saved file).</span>
+      </esp-web-install-button>
+      <span class="note" id="ver"></span>
+    </div>
+  </div>
+
+  <div class="card warn">
+    <h2>No port shows up?</h2>
+    <ol>
+      <li>Unplug the screen.</li>
+      <li>Hold the <strong>BOOT</strong> button on the back of the screen while you plug it back in, then let go.</li>
+      <li>Click Install again. When it's done, unplug and plug back in.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Then set it up from your phone</h2>
+    <ol>
+      <li>The screen shows <strong>SETUP</strong> and a WiFi name like <strong>LiveStadium-1A2B3C</strong>.</li>
+      <li>Join that WiFi on your phone. A setup page opens (or go to <strong>192.168.4.1</strong>).</li>
+      <li>Pick your home WiFi (2.4 GHz), team, time zone and stadium. Tap <strong>Save</strong>.</li>
+    </ol>
+    <p class="ok" style="margin:14px 0 0">Done. Long-press the screen any time for Settings.</p>
+  </div>
+
+  <footer>Live Stadium is an independent fan project by TJ Maker World. Not affiliated with or endorsed by the NFL or any team. Scores come from public sources and may be delayed.</footer>
+</main>
+<script>
+  fetch('flasher/manifest.json').then(r => r.json()).then(m => {
+    document.getElementById('ver').textContent = 'Version ' + m.version;
+  }).catch(() => {});
+</script>
+</body>
+</html>
