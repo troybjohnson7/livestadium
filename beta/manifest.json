@@ -1,9 +1,9 @@
 {
-  "version": "2.0.6",
-  "file": "LiveStadium-2.0.6.bin",
-  "size": 1968896,
-  "sha256": "ff14f160b70e6dfbb96efed2ed30f7284abc43d109c9a1600013a3d95f22dd8c",
-  "sig": "lzz64k+6pteg3Euo3a+ILYAZ1LkStYmaSgQsGAbZFRMTUR9go0HwtkAaF79UT4iSaJLAFF8cyZPyqz8Mn3QcIA==",
+  "version": "2.0.7",
+  "file": "LiveStadium-2.0.7.bin",
+  "size": 2095136,
+  "sha256": "ab2d169957883ba2a5f87a508b44b9cf1e7da2a8ccfabbb53596492af38bcbd3",
+  "sig": "Rr1M81hCHkqMz5KhcMJhk2U9LG+y3GgEQLffJXFEeT5u9Sm0tyIrMNi+wF0va2go3Kw/P0do+s2rtBtoi9/NVA==",
   "notes": "",
-  "made": "2026-11-20T20:31:04.739Z"
+  "made": "2026-11-20T21:10:52.001Z"
 }
